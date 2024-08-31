@@ -1,0 +1,178 @@
+import random
+
+
+words  = {
+    "spanish: de": "english: of",
+    "spanish: la": "english: the",
+    "spanish: que": "english: that",
+    "spanish: el": "english: the",
+    "spanish: en": "english: in",
+    "spanish: y": "english: and",
+    "spanish: a": "english: to",
+    "spanish: los": "english: the",
+    "spanish: del": "english: of the",
+    "spanish: se": "english: oneself",
+    "spanish: las": "english: the",
+    "spanish: por": "english: for",
+    "spanish: un": "english: a",
+    "spanish: para": "english: for",
+    "spanish: con": "english: with",
+    "spanish: no": "english: no",
+    "spanish: una": "english: a",
+    "spanish: su": "english: his/her/its",
+    "spanish: al": "english: to the",
+    "spanish: lo": "english: it",
+    "spanish: como": "english: like",
+    "spanish: más": "english: more",
+    "spanish: pero": "english: but",
+    "spanish: sus": "english: his/her/its",
+    "spanish: le": "english: to him/her",
+    "spanish: ya": "english: already",
+    "spanish: o": "english: or",
+    "spanish: este": "english: this",
+    "spanish: sí": "english: yes",
+    "spanish: porque": "english: because",
+    "spanish: esta": "english: this",
+    "spanish: entre": "english: between",
+    "spanish: cuando": "english: when",
+    "spanish: muy": "english: very",
+    "spanish: sin": "english: without",
+    "spanish: sobre": "english: on/about",
+    "spanish: también": "english: also",
+    "spanish: me": "english: me",
+    "spanish: hasta": "english: until",
+    "spanish: hay": "english: there is/are",
+    "spanish: donde": "english: where",
+    "spanish: quien": "english: who",
+    "spanish: desde": "english: from/since",
+    "spanish: todo": "english: everything/all",
+    "spanish: nos": "english: us",
+    "spanish: durante": "english: during",
+    "spanish: todos": "english: all/everyone",
+    "spanish: uno": "english: one",
+    "spanish: les": "english: to them",
+    "spanish: ni": "english: neither/nor",
+    "spanish: contra": "english: against",
+    "spanish: otros": "english: others",
+    "spanish: ese": "english: that",
+    "spanish: eso": "english: that",
+    "spanish: ante": "english: before",
+    "spanish: ellos": "english: they/them",
+    "spanish: e": "english: and",
+    "spanish: esto": "english: this",
+    "spanish: mí": "english: me",
+    "spanish: antes": "english: before",
+    "spanish: algunos": "english: some",
+    "spanish: qué": "english: what",
+    "spanish: unos": "english: some",
+    "spanish: yo": "english: I",
+    "spanish: otro": "english: other",
+    "spanish: otras": "english: others",
+    "spanish: otra": "english: other",
+    "spanish: él": "english: he/him",
+    "spanish: tanto": "english: so much",
+    "spanish: esa": "english: that",
+    "spanish: estos": "english: these",
+    "spanish: mucho": "english: a lot",
+    "spanish: quienes": "english: who",
+    "spanish: nada": "english: nothing",
+    "spanish: muchos": "english: many",
+    "spanish: cual": "english: which",
+    "spanish: poco": "english: little",
+    "spanish: ella": "english: she/her",
+    "spanish: estar": "english: to be",
+    "spanish: estas": "english: these",
+    "spanish: algunas": "english: some",
+    "spanish: algo": "english: something",
+    "spanish: nosotros": "english: we/us",
+    "spanish: mi": "english: my",
+    "spanish: mis": "english: my",
+    "spanish: tú": "english: you",
+    "spanish: te": "english: you",
+    "spanish: ti": "english: you",
+    "spanish: tu": "english: your",
+    "spanish: sí": "english: yes",
+    "spanish: bien": "english: well",
+    "spanish: ahora": "english: now",
+    "spanish: somos": "english: we are",
+    "spanish: ella": "english: she",
+    "spanish: ellos": "english: they",
+    "spanish: hablar": "english: to speak",
+    "spanish: libro": "english: book",
+    "spanish: casa": "english: house",
+    "spanish: amigo": "english: friend",
+    "spanish: tiempo": "english: time",
+    "spanish: ciudad": "english: city",
+    "spanish: padre": "english: father",
+    "spanish: madre": "english: mother",
+    "spanish: noche": "english: night",
+    "spanish: día": "english: day",
+    "spanish: mano": "english: hand",
+    "spanish: calle": "english: street",
+    "spanish: escuela": "english: school",
+    "spanish: comida": "english: food",
+    "spanish: agua": "english: water",
+    "spanish: sol": "english: sun",
+    "spanish: luna": "english: moon",
+    "spanish: padre": "english: father",
+    "spanish: madre": "english: mother",
+    "spanish: gracias": "english: thanks",
+    "spanish: por favor": "english: please",
+    "spanish: perdón": "english: sorry",
+    "spanish: amor": "english: love",
+    "spanish: verdad": "english: truth",
+    "spanish: mentira": "english: lie",
+    "spanish: derecho": "english: right",
+    "spanish: izquierda": "english: left",
+    "spanish: alto": "english: tall",
+    "spanish: bajo": "english: short",
+    "spanish: grande": "english: big",
+    "spanish: pequeño": "english: small",
+    "spanish: rápido": "english: fast",
+    "spanish: lento": "english: slow",
+    "spanish: feliz": "english: happy",
+    "spanish: triste": "english: sad",
+    "spanish: joven": "english: young",
+    "spanish: viejo": "english: old",
+    "spanish: nuevo": "english: new",
+    "spanish: viejo": "english: old",
+}
+
+
+
+def quiz_user(words):
+    keys = list(words.keys())
+    random.shuffle(keys)
+    score = 0  
+
+    for key in keys:
+       
+        spanish_word = key.split(": ")[1].strip()  
+        correct_answer = words[key].split(": ")[1].strip().lower() 
+        print(f"What is the English translation of '{spanish_word}'?")
+        user_answer = input("Enter answer or type 'quit' to exit: ").strip().lower()
+
+        if user_answer == "quit":
+            print("Thanks for playing!")
+            break
+
+        # Debug print statements
+       
+
+        if user_answer == correct_answer:
+            print("Nicely done!")
+            score += 1
+        else:
+            print(f"Wrong answer. The correct answer is '{correct_answer}'.")
+
+    # Print final score after the loop ends
+    print(f"Quiz complete. Your final score is {score}.")
+
+def main():
+    print("Welcome to the Language Learning App")
+    input("Press Enter to start the quiz ")
+    quiz_user(words)
+
+if __name__ == "__main__":
+    main()
+
